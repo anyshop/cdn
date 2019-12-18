@@ -1,0 +1,506 @@
+.fade {
+
+	opacity: 1 !important;
+	transition: opacity .15s linear;
+
+}
+
+#box-dados-login .checkout-sep, #box-dados-pessoais .checkout-sep, #box-dados-endereco .checkout-sep {
+	color: #1F1F1F;
+	text-transform: none;
+	font-size: 17px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	background: #FFF;
+}
+
+.main-header-ontop {
+	position: fixed !important;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100000;
+	background: #fff;
+	box-shadow: 0 1px 1px 0 rgba(50, 50, 50, 0.1);
+}
+
+/*LOADER FULL SCREEN*/
+#background-loader-full-screen{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	opacity: 0.8;
+	background-color: #333333;
+	z-index: 999999;
+	display: none;
+}
+
+#loader-full-screen{
+	width: 200px;
+	height: 150px;
+	top: 50%;
+	margin-top: -75px;
+	left: 50%;
+	margin-left: -75px;
+	position: fixed;
+	background: transparent;
+	z-index: 9999999;
+	display: none;
+}
+
+#loader-full-screen i{
+	color: #FFFFFF;
+	font-size: 64px;
+	position: relative;
+	left: 50%;
+	margin-left: -41px;
+}
+
+#loader-full-screen .wait{
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 24px;
+	margin-top: 20px;
+}
+/*LOADER FULL SCREEN END*/
+
+.mensagem_retorno {
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	position: relative;
+	text-align: center;
+	margin-top: 20px;
+	float: left;
+	width: 100%;
+}
+
+.mensagem_retorno span{
+	height:40px !important;
+}
+
+.loader {
+	position: absolute !important;
+	width: 100% !important;
+	height: inherit !important;
+	z-index: 999 !important;
+	background: url('../../../../store/assets/img/ajax-loader.gif') 50% 50% no-repeat;
+	top: 10px !important;
+	max-width: 100% !important;
+	max-height:  100% !important;
+	left: 0;
+}
+
+.no-left{
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+.no-right{
+	padding-right: 0px;
+	margin-right: 0px;
+}
+
+.on {
+	display: block;
+}
+
+.off {
+	display: none;
+}
+
+
+.paymentMethods{
+	/*width: 100%;
+	padding: 0px;*/
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	margin-bottom: 30px;
+	float: left;
+}
+
+.paymentOptions:hover{
+	background: #DFDFDF;
+	color: #000
+}
+
+.paymentOptions{
+	display:block;
+	width: 100%;
+	font-weight:bold;
+	border: 1px solid #DFDFDF;
+	cursor: pointer;
+	position: relative;
+}
+
+.paymentOptions.on {
+	color: #FFF;
+	background: #666;
+	z-index: 1;
+}
+
+.paymentOptions.on span{
+	color: #FFF;
+}
+
+.paymentOptions.on:before {
+	position: absolute !important;
+
+	left: 0;
+
+	top: 0;
+
+	bottom: 0;
+
+	margin: auto;
+
+	width: 45px;
+
+	height: 100%;
+
+	content: "\f00c";
+
+	font-family: FontAwesome;
+
+	font-style: normal;
+
+	font-weight: normal;
+
+	text-decoration: inherit;
+
+	text-align: center;
+
+	color: #FFF;
+
+	font-size: 25px;
+}
+
+.paymentOpt{
+	/*width: 100%;
+	padding: 0px;*/
+	background-color: #fff;
+	box-sizing: 
+	border-box;
+	position: relative;
+}
+
+.cartao-tok {
+	display: none;
+}
+
+.cartao-tok.on {
+	display: block;
+}
+
+.paymentCardHeader {
+	color:#000;
+	background: #f4f4f4;
+	padding: 15px;
+	border-bottom: 1px solid #DFDFDF;
+	text-transform: uppercase;
+}
+
+.voltar_carrinho {
+	background: #000;
+	color: #FFF
+}
+
+.voltar_carrinho:hover {
+	background: #333;
+	color: #FFF
+}
+
+.end {
+	float: right;
+	margin-top: 0px;
+	text-transform: uppercase;
+	font-size: 15px;
+	padding: 12px 0px;
+	text-align: center;
+	background: #00b386;
+	color: #fff;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.end:hover {
+	background: #00926d;
+}
+
+.tips .list {
+	list-style:none;
+	color: #320d41;
+	padding-bottom: 30px;
+	padding-top: 10px;
+}
+
+/*CIELO TRANSPARENTE*/
+
+.outer-margin {
+	margin:3px;
+}
+/* Placeholder disappears on focus */
+.outer-margin .inputbox:focus::-webkit-input-placeholder  {color:transparent;}
+.outer-margin .inputbox:focus::-moz-placeholder   {color:transparent;}
+.outer-margin .inputbox:-moz-placeholder   {color:transparent;}
+.outer-margin .textarea:focus::-webkit-input-placeholder  {color:transparent;}
+.outer-margin .textarea:focus::-moz-placeholder   {color:transparent;}
+.outer-margin .textarea:-moz-placeholder   {color:transparent;}
+/* hide show card names */
+
+.outer-margin .hidemask{
+	position: absolute !important;
+	right: 0 !important;
+	top: 0 !important;
+}
+
+.outer-margin .chosen{
+	display:block;
+}
+.outer-margin .control-label {
+	color:black !IMPORTANT;
+	position: relative !IMPORTANT;
+	width: 100% !IMPORTANT;
+	text-align: left !IMPORTANT;
+}
+.outer-margin .input-row {
+	display:block;
+	float: left;
+	width: 100%;
+}
+
+.paymentOptions img{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	max-width: 100%
+}
+
+.paymentOptions.lnk{
+	font-size: 13px;
+
+	display: block;
+
+	position: relative;
+
+	padding: 10px 10px 10px 30px !important;
+
+	float: left;
+
+	width: 100%;
+
+	text-transform: uppercase;
+
+	font-weight: normal;
+}
+
+.paymentOptCards {
+	border: 1px solid
+	#DFDFDF;
+	float: left;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.paymentCardBody {
+	color:#000;
+	background: #FFF;
+	padding: 15px;
+	float: left;
+	width: 100%;
+}
+
+.paymentCardBody .tips .instrucoes,
+.paymentCardBody .tips .valores,
+.paymentCardBody .tips .imagem {
+	float: left;
+	width: 100%;
+	padding: 10px;
+	border: solid 1px #DFDFDF;
+	margin-bottom: 20px;
+}
+
+.paymentCardBody .tips .instrucoes em {
+	margin-bottom: 12px;
+	display: block;
+	font-size: 1.7em;
+	font-weight: bold;
+	color: #ff3333;
+	text-transform: uppercase;
+	float: left;
+	width: 100%;
+}
+
+.paymentCardBody .tips .instrucoes p {
+	display: block;
+	color: #333;
+	float: left;
+	width: 100%;
+	font-size: 12px;
+}
+
+.paymentCardBody .tips .valores span {
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: bold;
+	float: left;
+	width: 100%
+
+}
+
+
+.paymentCardBody .tips .valores span b{
+	font-size: 25px;
+	color: #000;
+	text-transform: uppercase;
+}
+
+
+.paymentCardBody .tips form {
+	float: left;
+	width: 100%
+}
+
+/*PAGSEGURO TRANSPARENTE*/
+
+.paymentCardBody .tips .container_pagseguro,
+.paymentCardBody .tips .container_wirecard
+{
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.paymentCardBody .tips .menu_pagseguro,
+.paymentCardBody .tips .menu_wirecard
+{
+	float: left;
+	width: 100%;
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.paymentCardBody .tips .menu_pagseguro .alert.alert-warning,
+.paymentCardBody .tips .menu_wirecard .alert.alert-warning
+{
+	float: left;
+	width: 100%;
+	position: relative; 
+	text-align: center; 
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.paymentCardBody .tips .menu_wirecard .alert.alert-warning span, 
+.paymentCardBody .tips .menu_pagseguro .alert.alert-warning span 
+{
+	font-size: 30px;
+}
+
+.paymentCardBody .tips .menu_wirecard a,
+.paymentCardBody .tips .menu_pagseguro a
+{
+	margin-right: 10px;
+	width: 100%;
+	margin-bottom: 0px;
+	margin-top: 10px;
+	font-size: 1.2em;
+	padding-top: 25px;
+	padding-bottom: 30px;
+}
+
+.paymentCardBody .tips .container-sub-wirecard, 
+.paymentCardBody .tips .container-sub-pagseguro 
+{
+	float: left;
+	width: 100%;
+	position: relative;
+	padding: 10px;
+	border: solid 1px #DFDFDF;
+}
+
+
+.paymentCardBody .tips .container-sub-wirecard h1,
+.paymentCardBody .tips .container-sub-pagseguro h1
+{
+	background: #E6E6E6;
+	width: 100%;
+	float: left;
+	padding: 10px;
+	font-size: 14px;
+	text-transform: uppercase;
+	border: solid 1px #adadad;
+	margin-bottom: 10px;
+}
+
+.paymentCardBody .tips .container_wirecard_bancos a,
+.paymentCardBody .tips .container_wirecard_bancos_deposit a,
+.paymentCardBody .tips .container_pagseguro_bancos a,
+.paymentCardBody .tips .container_pagseguro_bancos_deposit a
+{
+	margin-right: 10px;
+	width: 100%;
+	margin-bottom: 0px;
+	margin-top: 10px;
+	font-size: 1em;
+	padding-top: 25px;
+	padding-bottom: 30px;
+}
+
+.paymentCardBody .tips .container_wirecard_bancos a img,
+.paymentCardBody .tips .container_wirecard_bancos_deposit a img,
+.paymentCardBody .tips .container_pagseguro_bancos a img,
+.paymentCardBody .tips .container_pagseguro_bancos_deposit a img
+{
+	margin-bottom: 10px;
+}
+
+.paymentCardBody .tips .container_wirecard_bandeiras a img,
+.paymentCardBody .tips .container_pagseguro_bandeiras a img{
+	margin-bottom: 0px;
+}
+
+.paymentCardBody .tips .container_wirecard_bandeiras, 
+.paymentCardBody .tips .container_pagseguro_bandeiras 
+{
+	float: left;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.paymentCardBody .tips .container_wirecard_bandeiras a,
+.paymentCardBody .tips .container_pagseguro_bandeiras a
+{
+	margin-right: 7px;
+	margin-bottom: 5px;
+	margin-top: 0px;
+	font-size: 0.8em;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+
+.voltar_carrinho{
+	display: block !important;
+	width: 100% !important;
+	text-align: center !important;
+	padding: 10px !important;
+	font-size: 13px !important;
+	margin-top: 15px !important;
+	background: #000 !important;
+	border: 1px solid #DFDFDF !important;
+	color: #FFF !important;
+}
+
+.voltar_carrinho:hover{
+	background: #333 !important;
+	border: 1px solid #333 !important;
+	color: #FFF !important
+}
