@@ -1,3 +1,127 @@
+
+
+
+function controlarQtdeProdutoInfoExtra(){
+    $('#product .variacao-opcao .variacao-tamanho select').change(function(){
+        var idProduto = $(this).closest('.variacao-opcao').find('input[name*=idProduto]').val();
+        var idVariacao = $(this).find('option:selected').val();
+        var qtde = $(this).find('option:selected').attr('qtde');
+        var titulo_cor = $(this).find('option:selected').attr('nome-cor');
+        var titulo_info_extra = $(this).find('option:selected').attr('nome-info-extra');
+        
+        $(this).closest('.variacao-opcao').find('.variacao-qtde .wrapper input').val(0);
+        $(this).closest('.variacao-opcao').find('input[name*=idVariacao]').val(idVariacao);
+        $('#box-avise-me .head-avise-me').html();
+        $('#box-avise-me .head-avise-me').html('<p><span>'+titulo_cor+'</span> | <span>'+titulo_info_extra+'</span></p>');
+        $("#box-avise-me").addClass('hide').slideUp(500);
+
+        $("#box-avise-me input[name*=idProduto]").val(idProduto);
+        $("#box-avise-me input[name*=idVariacao]").val(idVariacao);
+
+        if (qtde > 0){
+            $(this).closest('.variacao-opcao').find('.variacao-qtde .wrapper').removeClass('hide');
+            $(this).closest('.variacao-opcao').find('.variacao-qtde .btn-avise-me').addClass('hide');
+            $(this).closest('.variacao-opcao').find('input[name*=idVariacao]').removeAttr('disabled');
+            $(this).closest('.variacao-opcao').find('input[name*=idProduto]').removeAttr('disabled');
+            $(this).closest('.variacao-opcao').find('.variacao-qtde input[name*=qtde]').removeAttr('disabled');
+        }else{
+            $(this).closest('.variacao-opcao').find('.variacao-qtde .wrapper').addClass('hide');
+            $(this).closest('.variacao-opcao').find('.variacao-qtde .btn-avise-me').removeClass('hide');
+            $(this).closest('.variacao-opcao').find('input[name*=idVariacao]').attr('disabled', true);
+            $(this).closest('.variacao-opcao').find('input[name*=idProduto]').attr('disabled', true);
+            $(this).closest('.variacao-opcao').find('.variacao-qtde input[name*=qtde]').attr('disabled', true);
+        }
+
+        controlarAddToCartButton();
+
+    });
+}
+
+function controlarAddToCartButton(){
+    
+    var notAvailableBool = true;
+
+    $('#product .variacao-opcao').each(function(index,value) {
+        var notAvailable = $(value).find('.variacao-qtde .wrapper').hasClass('hide');
+        notAvailableBool = notAvailableBool && notAvailable;
+    });
+    if (notAvailableBool){
+        $('#product .pb-right-column .product-price-group .button-group .btn-add-cart').addClass('hide');
+    }else{
+        $('#product .pb-right-column .product-price-group .button-group .btn-add-cart').removeClass('hide');
+    }
+
+}
+
+function clickAddToCartButton(){
+
+    var qtde;
+    var qtdeBool = false;
+
+    $('#product .variacao-opcao').each(function(index,value) {
+        var notAvailable = $(value).find('.variacao-qtde .wrapper').hasClass('hide');
+        if (!notAvailable){
+            qtde = $(value).find('.variacao-qtde .wrapper input').val();
+            qtdeBool = qtdeBool || (qtde > 0);
+            if (qtde == 0){
+                $(value).find('.variacao-qtde .wrapper input').attr('disabled', true);
+                $(value).find('input[name*=idVariacao]').attr('disabled', true);
+                $(value).find('input[name*=idProduto]').attr('disabled', true);
+            }
+        }
+    });
+
+    isVisible = !$('#product .pb-right-column .product-price-group .button-group .btn-add-cart').hasClass('hide');
+    if (isVisible && qtdeBool){
+        $("#form-carrinho").submit();
+    }else{
+        alert("Selecione uma quantidade.");
+    }
+}
+
+function scrollFavoritos(){
+    $("#product .share .lista-desejo").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#product .mensagem_retorno_desejo").offset().top
+        }, 1000);
+    });
+}
+
+function scrollComentarios(){
+    $("#product .product-star a").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#box-avaliacao-do-produto").offset().top
+        }, 1000);
+    });
+}
+
+function controlarQtdeProduto(){
+    $('#product .variacao-opcao .variacao-qtde .wrapper i').click(function(){
+        var which = $(this).hasClass('fa-plus');
+        var currentValue = $(this).closest('.wrapper').find('input').val();
+        currentValue = parseInt(currentValue);
+        if (which){
+            $(this).closest('.wrapper').find('input').val(currentValue+1);
+        }else{
+            if (currentValue > 0){
+                $(this).closest('.wrapper').find('input').val(currentValue-1);
+            }
+        }
+    });
+}
+
+function toogleSocialShare(){
+    $('.share > ul > li > a').click(function(){
+        var elHidden = $(this).closest('li').find('.inner').hasClass('hide');
+        if (elHidden){
+            $(this).closest('li').find('.inner').removeClass('hide');
+        }else{
+            $(this).closest('li').find('.inner').addClass('hide');
+        }
+    });
+}
+
+
 function socialShare(share){
     if(share == "facebook"){
         window.open("https://www.facebook.com/dialog/share?app_id=140586622674265&display=popup&href="+window.location,"_blank","toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=600,width=600,height=400");
@@ -22,6 +146,29 @@ function so_numeros() {
             return false;
         }
     });
+}
+
+
+function carrega_passo4() {
+    if(DISPOSITIVO == 'desktop'){
+        $('.ContainerBanco').hide();
+        $('.hidemask').hide();
+        $("#portador_validade").mask('99/9999');
+        $("#portador_validade_cielo").mask('99/9999');
+        $("#rede_portador_validade").mask('99/9999');
+        $("#portador_cvc").mask('999?9');
+        $("#portador_cvc_cielo").mask('999?9');
+
+        $('#portador_cpf').mask("999.999.999-99");
+        $("#portador_data_nascimento").mask("99/99/9999");
+        $('#portador_validade_ano').mask("9999");
+        $('#portador_validade_mes').mask("99");
+        $("#portador_ddd").mask("99");
+        $("#portador_telefone").mask("99999999?9");
+    }else {
+        $('.ContainerBanco').hide();
+        $('.hidemask').hide();
+    }
 }
 
 function tableSummernot(){
@@ -124,6 +271,16 @@ function selecionaVariacaoProdutoIdInfoExtraIdCorSelectLista(key_lista, id_lista
 
 $(function(){ 
 
+    if(MODULO == 'produto') {
+        tableSummernot();
+    }
+
+    if(MODULO == 'checkout') {
+        $('.ContainerBanco').hide();
+        carrega_passo4();
+        so_numeros();
+    }
+
     $('.open-popup-link').magnificPopup({
         type:'inline',
         midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
@@ -149,18 +306,16 @@ $(function(){
 
   $("input#cep").keypress(function(event) {
       if ( event.which == 13 ) {
-            // console.log('alou');
-            // $("#consultePrazo .btn-default").click();
-            calculoFretePageProduto();
-        }
-    });
+        calculoFretePageProduto();
+    }
+});
 
   $(window).scroll(function(){
     /* Show hide scrolltop button */
     /* Main menu on top */
     var h = $(window).scrollTop();
     var width = $(window).width();
-    if(width > 767){
+    if(width > 767 && MODULO != 'produto'){
         if(h > 35){
             $('#menu_global').addClass('main-header-ontop');
         }else{
@@ -399,15 +554,6 @@ $(function(){
         $("#pesquisa-desktop").slideToggle(500);
         $("#SearchTopo").slideToggle("slow");
         $("#SearchTopo input").focus();
-    });
-
-    $(document).on('click', '.fancy_galeria_produto, .imagem_informativa', function(e) {
-        e.preventDefault();
-        $.fancybox({
-            href : $(this).attr('href'),
-            openEffect  : 'none',
-            closeEffect : 'none'
-        });
     });
 
     $(document).on("click","#monstrarTermosDeUso",function(event){
@@ -1123,7 +1269,7 @@ function soma_frete(codigo, tipo, frete, total, prazo, decimal,link_rastreio, ta
 
 
 
-  
+
 function calcularFrete(val){
 
     var i_loader = "<i class='fa fa-spinner fa-spin fa-1x fa-fw'></i> Carregando...";
